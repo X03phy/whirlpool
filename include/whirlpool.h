@@ -7,6 +7,9 @@
 /* For size_t */
 #include <stddef.h>
 
+/* For memset(), memcmp() */
+#include <string.h>
+
 static const uint64_t C0[256] = {
 	0x18186018c07830d8, 0x23238c2305af4626, 0xc6c63fc67ef991b8, 0xe8e887e8136fcdfb,
 	0x878726874ca113cb, 0xb8b8dab8a9626d11, 0x0101040108050209, 0x4f4f214f426e9e0d,

@@ -1,13 +1,10 @@
-#include "sha256.h"
+#include "whirlpool.h"
 
-/* For whirlpool() */
-#include <openssl/sha.h>
+/* For WHIRLPOOL */
+#include <openssl/whrlpool.h>
 
 /* For printf() */
 #include <stdio.h>
-
-/* For memcmp() */
-#include <string.h>
 
 int main( int argc, char **argv )
 {
@@ -20,14 +17,14 @@ int main( int argc, char **argv )
 	unsigned char hash[32];
 	unsigned char my_hash[32];
 
-	SHA256( ( const unsigned char * ) argv[1], strlen( argv[1] ), hash );
-	printf( "openssl SHA256: " );
+	WHIRLPOOL( ( const unsigned char * ) argv[1], strlen( argv[1] ), hash );
+	printf( "openssl WHIRLPOOL: " );
 	for ( uint8_t i = 0; i < 32; ++i )
 		printf( "%02x", hash[i] );
 	printf( "\n" );
 
-	sha256( ( const unsigned char * ) argv[1], strlen(argv[1]), my_hash );
-	printf( "my SHA256:      " );
+	whirlpool( ( const unsigned char * ) argv[1], strlen(argv[1]), my_hash );
+	printf( "my WHIRLPOOL:      " );
 	for ( uint8_t i = 0; i < 32; ++i )
 		printf( "%02x", my_hash[i] );
 	printf("\n");
