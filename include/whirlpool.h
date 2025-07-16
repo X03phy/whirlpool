@@ -554,6 +554,6 @@ typedef struct s_whirlpool_ctx
 	size_t buffer_len;  // Actual length of the buffer
 } t_whirlpool_ctx;
 
-void whirlpool( const uint8_t *data, size_t len, uint8_t hash[32] );
+void whirlpool( const uint8_t *data, size_t len, uint8_t hash[64] );
 
 #endif
