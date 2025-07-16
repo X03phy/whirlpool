@@ -14,22 +14,22 @@ int main( int argc, char **argv )
 		return ( 1 );
 	}
 
-	unsigned char hash[32];
-	unsigned char my_hash[32];
+	unsigned char hash[64];
+	unsigned char my_hash[64];
 
 	WHIRLPOOL( ( const unsigned char * ) argv[1], strlen( argv[1] ), hash );
 	printf( "openssl WHIRLPOOL: " );
-	for ( uint8_t i = 0; i < 32; ++i )
-		printf( "%02x", hash[i] );
+	for ( uint8_t i = 0; i < 64; ++i )
+		printf("%02x", hash[i]);
 	printf( "\n" );
 
 	whirlpool( ( const unsigned char * ) argv[1], strlen(argv[1]), my_hash );
 	printf( "my WHIRLPOOL:      " );
-	for ( uint8_t i = 0; i < 32; ++i )
-		printf( "%02x", my_hash[i] );
+	for ( uint8_t i = 0; i < 64; ++i )
+		printf("%02x", my_hash[i]);
 	printf("\n");
 
-	if ( !memcmp( ( const char * ) hash, ( const char * ) my_hash, 32 ) )
+	if ( !memcmp( ( const char * ) hash, ( const char * ) my_hash, 64 ) )
 		printf( "OK\n" );
 	else
 		printf( "KO\n" );
